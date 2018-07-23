@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid:
+  name: Johnny S. Rails
+
+old:
+  name: John S. Rails Sr.
+  created_at: <%= 2.weeks.ago %>
