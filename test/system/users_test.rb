@@ -19,7 +19,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in 'Name', with: @user.name
     click_on 'Create User'
 
-    assert_text 'User was successfully created'
+    assert_text 'User was created'
     click_on 'Back'
   end
 
@@ -30,7 +30,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in 'Name', with: @user.name
     click_on 'Update User'
 
-    assert_text 'User was successfully updated'
+    assert_text 'User was updated'
     click_on 'Back'
   end
 
@@ -40,6 +40,6 @@ class UsersTest < ApplicationSystemTestCase
       click_on 'Destroy', match: :first
     end
 
-    assert_text 'User was successfully destroyed'
+    assert_text 'User was destroyed'
   end
 end
