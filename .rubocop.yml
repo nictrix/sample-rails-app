@@ -1,0 +1,7 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - 'db/schema.rb'
+  DisplayCopNames: true
