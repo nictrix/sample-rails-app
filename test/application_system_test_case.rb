@@ -18,7 +18,9 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     #   we do not want max either, so this is a good compromise
 
     capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: %w[no-sandbox headless disable-gpu window-size=1400,1400] }
+      chromeOptions: { args: %w[
+        no-sandbox headless disable-gpu window-size=1400,1400
+      ] }
     )
 
     Capybara::Selenium::Driver.new(

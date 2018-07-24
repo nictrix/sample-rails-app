@@ -4,4 +4,5 @@ AllCops:
     - 'config/**/*'
     - 'vendor/**/*'
     - 'db/schema.rb'
+    - 'test/test_helper.rb'
   DisplayCopNames: true
