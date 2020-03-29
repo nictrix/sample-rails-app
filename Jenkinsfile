@@ -8,11 +8,7 @@ pipeline {
             steps {
                 sh '''#!/usr/bin/env bash
                         source ~/.bash_profile;
-                        rbenv local 2.5.0;
                         gem install bundler;
-
-                        ls -la;
-                        env;
 
                         bundle install;
                 '''
@@ -22,7 +18,6 @@ pipeline {
             steps {
                 sh '''#!/usr/bin/env bash
                         source ~/.bash_profile;
-                        rbenv local 2.5.0;
 
                         bundle exec rake test
                 '''
@@ -35,7 +30,6 @@ pipeline {
             steps {
                 bash '''#!/usr/bin/env bash
                         source ~/.bash_profile;
-                        rbenv local 2.5.0;
 
                         bundle exec rake db:migrate;
                         bundle exec rackup --host 0.0.0.0;
@@ -51,7 +45,6 @@ pipeline {
             steps {
                 sh '''#!/usr/bin/env bash
                         source ~/.bash_profile;
-                        rbenv local 2.5.0;
 
                         bundle exec rake db:migrate;
                         bundle exec rackup --host 0.0.0.0;
