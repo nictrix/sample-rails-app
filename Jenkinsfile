@@ -7,24 +7,19 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/usr/bin/env bash
+                        source ~/.bash_profile;
+                        gem install bundler;
 
-                      sleep 10; echo "Running Build"
-                      sleep 10; echo "Running Build"
-                      sleep 10; echo "Running Build"
-
-                      echo "Build Successful"
+                        bundle install;
                 '''
             }
         }
         stage('Test') {
             steps {
                 sh '''#!/usr/bin/env bash
+                        source ~/.bash_profile;
 
-                      sleep 10; echo "Running Tests"
-                      sleep 10; echo "Running Tests"
-                      sleep 10; echo "Running Tests"
-
-                      echo "Tests Successful"
+                        bundle exec rake test
                 '''
             }
         }
@@ -36,8 +31,8 @@ pipeline {
                 bash '''#!/usr/bin/env bash
                         source ~/.bash_profile;
 
-                        sleep 10; echo "Running Development WebApp"
-                        sleep 900
+                        bundle exec rake db:migrate;
+                        bundle exec rackup --host 0.0.0.0;
                 '''
                 input message: 'Click "Proceed" to continue'
                 sh 'echo "deleting!"'
@@ -51,8 +46,8 @@ pipeline {
                 sh '''#!/usr/bin/env bash
                         source ~/.bash_profile;
 
-                        sleep 10; echo "Running Production WebApp"
-                        sleep 900
+                        bundle exec rake db:migrate;
+                        bundle exec rackup --host 0.0.0.0;
                 '''
                 input message: 'Click "Proceed" to continue'
                 sh 'echo "deployed!"'
