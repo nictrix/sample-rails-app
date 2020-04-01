@@ -28,11 +28,11 @@ pipeline {
                 branch 'development'
             }
             steps {
-                bash '''#!/usr/bin/env bash
-                        source ~/.bash_profile;
+                sh '''#!/usr/bin/env bash
+                      source ~/.bash_profile;
 
-                        bundle exec rake db:migrate;
-                        bundle exec rackup --host 0.0.0.0;
+                      bundle exec rake db:migrate;
+                      bundle exec rackup --host 0.0.0.0;
                 '''
                 input message: 'Click "Proceed" to continue'
                 sh 'echo "deleting!"'
