@@ -32,7 +32,7 @@ pipeline {
                       source ~/.bash_profile;
 
                       bundle exec rake db:migrate;
-                      bundle exec rackup --host 0.0.0.0;
+                      bundle exec rackup --host 0.0.0.0 -p 3000;
                 '''
                 input message: 'Click "Proceed" to continue'
                 sh 'echo "deleting!"'
